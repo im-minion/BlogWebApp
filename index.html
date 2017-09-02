@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Blog App</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css"/>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <!--Main stylesheet-->
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<!--Login Dialog-->
+
+<dialog id="loginDialog" class="mdl-dialog">
+    <h4 class="mdl-dialog__title">Sign In</h4>
+    <div class="mdl-dialog__content">
+        <p id="loginError">Error</p>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="loginEmail">
+            <label class="mdl-textfield__label" for="loginEmail">Email</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="loginPassword">
+            <label class="mdl-textfield__label" for="loginPassword">Password</label>
+        </div>
+    </div>
+    <div class="mdl-dialog__actions">
+        <!-- Colored raised button -->
+        <button id="loginButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+            Sign In
+        </button>
+        <!-- MDL Spinner Component -->
+        <div id="loginProgress" class="mdl-spinner mdl-js-spinner is-active"></div>
+
+
+    </div>
+</dialog>
+
+
+<div class="login-cover">
+    <!-- MDL Spinner Component -->
+    <div class="page-loader mdl-spinner mdl-js-spinner is-active"></div>
+
+
+</div>
+
+<!--Main page content-->
+
+<div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout-icon"></div>
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout__title">Blog App</span>
+            <span class="page-title-span"> | </span>
+            <span class="page-title-span"> Home </span>
+
+            <div class="mdl-layout-spacer"></div>
+            <nav class="mdl-navigation">
+                <!-- Colored raised button -->
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                    Sign Out <i class=" button-right-icon material-icons">account_circle</i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAE9dd37y0OFAboldUxYW660S8yq-Vzrdc",
+        authDomain: "fir-web-learn-614f0.firebaseapp.com",
+        databaseURL: "https://fir-web-learn-614f0.firebaseio.com",
+        projectId: "fir-web-learn-614f0",
+        storageBucket: "",
+        messagingSenderId: "257073188256"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+<script src="index.js"></script>
+
+</body>
+</html>
