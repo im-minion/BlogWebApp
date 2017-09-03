@@ -36,7 +36,7 @@ $("#loginButton").click(
 
             firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
                 $("#loginError").show().text(error.message);
-                $("#loginProgress").hide()
+                $("#loginProgress").hide();
                 $("#loginButton").show();
             });
         }
@@ -76,8 +76,26 @@ $("#onlyForSignupButton").click(function () {
     var email = $("#loginEmail").val();
     var password = $("#loginPassword").val();
     var cPassword = $("#confirmPassword").val();
-    console.log("srt",email,password,cPassword);
+    console.log("srt", email, password, cPassword);
     //TODO:signup user with email and password
+    if (password !== cPassword) {
+        //alert("Password Didnt match");
+    }
+    else {
+        $("#loginProgress").show();
+        $("#onlyForSignupButton").hide();
+        //alert("Password match !!");
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+            // Handle Errors here.
+
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert(errorMessage);
+            // ...
+            $("#loginProgress").hide();
+            $("#onlyForSignupButton").show();
+        });
+    }
 
 });
 
