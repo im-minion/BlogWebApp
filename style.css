@@ -28,3 +28,15 @@
 #loginError{
     display: none;
 }
+#onlyForSignup{
+    display: none;
+}
+#onlyForSignupButton{
+    display: none;
+}
+#onlyForSignupBackButton{
+    display: none;
+}
+#confirmPasswordDiv{
+    display: none;
+}

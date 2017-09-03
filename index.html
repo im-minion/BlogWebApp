@@ -18,7 +18,7 @@
 <!--Login Dialog-->
 
 <dialog id="loginDialog" class="mdl-dialog">
-    <h4 class="mdl-dialog__title">Sign In</h4>
+    <h4 id="titleSignIn" class="mdl-dialog__title">Sign In</h4>
     <div class="mdl-dialog__content">
         <p id="loginError">Error</p>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -26,13 +26,23 @@
             <label class="mdl-textfield__label" for="loginEmail">Email</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="loginPassword">
+            <input class="mdl-textfield__input" type="password" id="loginPassword">
             <label class="mdl-textfield__label" for="loginPassword">Password</label>
+        </div>
+        <div id="confirmPasswordDiv" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="onlyForSignup">
+            <input class="mdl-textfield__input" type="password" id="confirmPassword">
+            <label class="mdl-textfield__label" for="confirmPassword">Confirm Password</label>
         </div>
     </div>
     <div class="mdl-dialog__actions">
-        <button id="signup" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-            Or Sign Up
+        <button id="signupButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+            New user?
+        </button>
+        <button id="onlyForSignupButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+            Sign Up
+        </button>
+        <button id="onlyForSignupBackButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+            Back to Sign In
         </button>
         <!-- Colored raised button -->
         <button id="loginButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">

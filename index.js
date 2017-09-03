@@ -57,3 +57,36 @@ $("#signoutButton").click(
 
     }
 );
+
+//signupbutton
+
+$("#signupButton").click(function () {
+    $("#onlyForSignup").show();
+    $("#signupButton").hide();
+    $("#onlyForSignupButton").show();
+    $("#loginButton").hide();
+    $("#onlyForSignupBackButton").show();
+    $("#confirmPasswordDiv").show();
+    var x = document.getElementById("titleSignIn");
+    x.innerText = "Sign Up";
+});
+
+//onlySignupProcess
+$("#onlyForSignupButton").click(function () {
+    var email = $("#loginEmail").val();
+    var password = $("#loginPassword").val();
+    var cPassword = $("#confirmPassword").val();
+    console.log("srt",email,password,cPassword);
+    //TODO:signup user with email and password
+});
+
+$("#onlyForSignupBackButton").click(function () {
+    console.log("back presesd");
+    var x = document.getElementById("titleSignIn");
+    x.innerText = "Sign In";
+    $("#onlyForSignupBackButton").hide();
+    $("#onlyForSignupButton").hide();
+    $("#signupButton").show();
+    $("#loginButton").show();
+    $("#confirmPasswordDiv").hide();
+});
