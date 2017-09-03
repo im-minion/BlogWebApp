@@ -78,15 +78,18 @@ $("#onlyForSignupButton").click(function () {
     var cPassword = $("#confirmPassword").val();
     console.log("srt",email,password,cPassword);
     //TODO:signup user with email and password
+
 });
 
 $("#onlyForSignupBackButton").click(function () {
     console.log("back presesd");
     var x = document.getElementById("titleSignIn");
     x.innerText = "Sign In";
+
     $("#onlyForSignupBackButton").hide();
     $("#onlyForSignupButton").hide();
     $("#signupButton").show();
     $("#loginButton").show();
     $("#confirmPasswordDiv").hide();
+
 });
