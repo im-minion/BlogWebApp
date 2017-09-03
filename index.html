@@ -29,23 +29,28 @@
             <input class="mdl-textfield__input" type="password" id="loginPassword">
             <label class="mdl-textfield__label" for="loginPassword">Password</label>
         </div>
-        <div id="confirmPasswordDiv" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="onlyForSignup">
+        <div id="confirmPasswordDiv" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+             id="onlyForSignup">
             <input class="mdl-textfield__input" type="password" id="confirmPassword">
             <label class="mdl-textfield__label" for="confirmPassword">Confirm Password</label>
         </div>
     </div>
     <div class="mdl-dialog__actions">
-        <button id="signupButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+        <button id="signupButton"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             New user?
         </button>
-        <button style="margin: 10px" id="onlyForSignupButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+        <button style="margin: 10px" id="onlyForSignupButton"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             Sign Up
         </button>
-        <button style="margin: 10px" id="onlyForSignupBackButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+        <button style="margin: 10px" id="onlyForSignupBackButton"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             Back to Sign In
         </button>
         <!-- Colored raised button -->
-        <button id="loginButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+        <button id="loginButton"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             Sign In
         </button>
 
@@ -58,8 +63,8 @@
 
 
 <div class="login-cover">
-    <!-- MDL Spinner Component -->
-    <div class="page-loader mdl-spinner mdl-js-spinner is-active"></div>
+    <!--&lt;!&ndash; MDL Spinner Component &ndash;&gt;-->
+    <!--<div class="page-loader mdl-spinner mdl-js-spinner is-active"></div>-->
 
 
 </div>
@@ -77,12 +82,51 @@
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation">
                 <!-- Colored raised button -->
-                <button id="signoutButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                <button id="signoutButton"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
                     Sign Out <i class=" button-right-icon material-icons">account_circle</i>
                 </button>
             </nav>
         </div>
     </header>
+    <p>Where it is</p>
+
+    <!--Card Starts-->
+    <!-- Wide card with share menu button -->
+    <!--<style>-->
+        <!--.demo-card-wide.mdl-card {-->
+            <!--width: 512px;-->
+        <!--}-->
+        <!--.demo-card-wide > .mdl-card__title {-->
+            <!--color: #fff;-->
+            <!--height: 176px;-->
+            <!--background: url('../assets/demos/welcome_card.jpg') center / cover;-->
+        <!--}-->
+        <!--.demo-card-wide > .mdl-card__menu {-->
+            <!--color: #fff;-->
+        <!--}-->
+    <!--</style>-->
+
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 style="color: black" class="mdl-card__title-text">Welcome</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Mauris sagittis pellentesque lacus eleifend lacinia...
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Get Started
+            </a>
+        </div>
+        <div class="mdl-card__menu">
+            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">share</i>
+            </button>
+        </div>
+    </div>
+    <!--Card Ends-->
     <div class="mdl-layout__drawer">
     </div>
 </div>
