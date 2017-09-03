@@ -26,6 +26,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 // Login process
 $("#loginButton").click(
     function () {
+        var errorClear = document.getElementById("loginError");
+        errorClear.innerText = "";
         var email = $("#loginEmail").val();
         var password = $("#loginPassword").val();
         console.log(email, password);
