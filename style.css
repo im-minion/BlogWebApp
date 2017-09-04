@@ -53,6 +53,8 @@
 /*-------- For card ------------*/
 .demo-card-wide.mdl-card {
     width: 512px;
+    border: none;
+    margin: 10px;
 }
 
 .demo-card-wide > .mdl-card__title {
@@ -64,7 +66,7 @@
 .demo-card-wide > .mdl-card__menu {
     color: #fff;
 }
-
 .forScroll {
     overflow: auto;
+    align-self: center
 }

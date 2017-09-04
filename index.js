@@ -7,21 +7,26 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         var rootRef = firebase.database().ref();
         var BlogRef = rootRef.child("Blog");
+        // BlogRef.push({
+        //    abcd:"ssss",
+        //    dd:"hjyu"
+        // });
         BlogRef.on('value', function (datasnapshot) {
+            var newPost = datasnapshot.name;
+
             var title = datasnapshot.child("title").val();
             var description = datasnapshot.child("description").val();
             var image = datasnapshot.child("image").val();
             var username = datasnapshot.child("username").val();
-            console.log(title, description, image, username);
+            console.log(newPost,title, description, image, username);
 
 
 
 
             $("#contentDiv").append("<div id=\"cardDiv\" class=\"demo-card-wide mdl-card mdl-shadow--2dp\">"+
                 "<div id=\"imageDiv\" class=tp style=\"align-self: center\">" +
-                "<img id=\"imageView\" src=\"assets/l.png\" style=\"max-height: 250px ; max-width: 300px ; height: auto ; width: auto ; padding: 0 ; margin: 0 ; \">\n" +
-                "            </div>" +
-                " </div>" +
+                "<img id=\"imageView\" src="+ image+" style=\"max-height: 250px ; max-width: 300px ; height: auto ; width: auto ; padding: 0 ; margin: 0 ; \">\n" +
+                "</div>" +
                 "<div id=\"titleDiv\" class=\"mdl-card__title\">" +
                 "<h2 id=\"title\" style=\"color: black\" class=\"mdl-card__title-text\">"+title +"</h2>" +
                 "</div>" +
