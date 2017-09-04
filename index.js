@@ -3,18 +3,35 @@ firebase.auth().onAuthStateChanged(function (user) {
         //user is siggned in
         $('.login-cover').hide();
 
+        /*Blog Displaying things*/
+
+        var rootRef = firebase.database().ref();
+        var BlogRef = rootRef.child("Blog");
+        BlogRef.on('value', function (datasnapshot) {
+            var title = datasnapshot.child("title").val();
+            var description = datasnapshot.child("description").val();
+            var image = datasnapshot.child("image").val();
+            var username = datasnapshot.child("username").val();
+            console.log(title, description, image, username);
+        });
+
+        //querySelector or querycreator or append into contentDiv
+        // 1. for each blog new cardDiv is created first
+        // 2. for each card the title description image username of corresting blog to be added
+
+        /*Blog Displaying things*/
+
         var dialog = document.querySelector('#loginDialog');
         if (!dialog.showModal) {
             dialogPlyfill.registerDialog(dialog);
         }
-        dialog.close();
+        //dialog.close();
+
     }
     else {
         //user not exist
         $('.login-cover').show();
         $("#loginProgress").hide();
-
-
         var dialog = document.querySelector('#loginDialog');
         if (!dialog.showModal) {
             dialogPlyfill.registerDialog(dialog);
@@ -55,8 +72,6 @@ $("#signoutButton").click(
             // An error happened.
             alert(error.message)
         });
-
-
     }
 );
 
@@ -98,7 +113,6 @@ $("#onlyForSignupButton").click(function () {
             $("#onlyForSignupButton").show();
         });
     }
-
 });
 
 $("#onlyForSignupBackButton").click(function () {
