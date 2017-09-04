@@ -13,11 +13,74 @@ firebase.auth().onAuthStateChanged(function (user) {
             var image = datasnapshot.child("image").val();
             var username = datasnapshot.child("username").val();
             console.log(title, description, image, username);
+
+
+
+
+            $("#contentDiv").append("<div id=\"cardDiv\" class=\"demo-card-wide mdl-card mdl-shadow--2dp\">"+
+                "<div id=\"imageDiv\" class=tp style=\"align-self: center\">" +
+                "<img id=\"imageView\" src=\"assets/l.png\" style=\"max-height: 250px ; max-width: 300px ; height: auto ; width: auto ; padding: 0 ; margin: 0 ; \">\n" +
+                "            </div>" +
+                " </div>" +
+                "<div id=\"titleDiv\" class=\"mdl-card__title\">" +
+                "<h2 id=\"title\" style=\"color: black\" class=\"mdl-card__title-text\">"+title +"</h2>" +
+                "</div>" +
+                " <div id=\"descriptionDiv\" class=\"mdl-card__supporting-text\">" +
+                "<h5 id=\"description\" style=\"padding: 0 ; margin: 0; font-family: SansSerif,serif\">"+ description +"</h5>" +
+                "</div>" +
+                "<div id=\"byUsernameDiv\" class=\"mdl-card__supporting-text\">" +
+                "<h5 id=\"byUsername\" style=\"padding: 0 ; margin: 0; font-family: SansSerif,serif\">"+ username +"</h5>" +
+                "</div>" +
+                "</div>"
+
+            );
+
+
+
+
+
+
+
         });
+
 
         //querySelector or querycreator or append into contentDiv
         // 1. for each blog new cardDiv is created first
-        // 2. for each card the title description image username of corresting blog to be added
+        // 2. for each card the title, description, image, username of corresponding blog to be added
+        /*
+        *
+        *
+        *
+
+<div id="cardDiv" class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div id="imageDiv" class=tp style="align-self: center">
+
+                <img id="imageView" src="assets/l.png" style="max-height: 250px ; max-width: 300px ; height: auto ; width: auto ; padding: 0 ; margin: 0 ; ">
+            </div>
+
+            <div id="titleDiv" class="mdl-card__title">
+
+                <h2 id="title" style="color: black" class="mdl-card__title-text">Text1 - Title</h2>
+            </div>
+
+            <div id="descriptionDiv" class="mdl-card__supporting-text">
+
+                <h5 id="description" style="padding: 0 ; margin: 0; font-family: SansSerif,serif">Text 2 -Description</h5>
+            </div>
+
+            <div id="byUsernameDiv" class="mdl-card__supporting-text">
+
+                <h5 id="byUsername" style="padding: 0 ; margin: 0; font-family: SansSerif,serif">Text 3 - ByUsername</h5>
+            </div>
+
+        </div>
+        <!--Card Ends-->.
+        *
+        *
+        *
+        *
+        *
+        * */
 
         /*Blog Displaying things*/
 
