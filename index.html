@@ -89,36 +89,24 @@
             </nav>
         </div>
     </header>
-    <p>Where it is</p>
-
+    <!--<p>Where it is</p>-->
+<div class="forScroll">
     <!--Card Starts-->
-
-    <style>
-        .demo-card-wide.mdl-card {
-            width: 512px;
-        }
-        .demo-card-wide > .mdl-card__title {
-            color: #fff;
-            height: 176px;
-            background: url('/assets/pic.jpg') center / cover;
-        }
-        .demo-card-wide > .mdl-card__menu {
-            color: #fff;
-        }
-    </style>
-
-    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title">
-            <h2 style="color: black" class="mdl-card__title-text">Text1 - Title</h2>
+    <div id="cardDiv" class="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div id="imageDiv" class=tp>
+            <img id="imageView" src="assets/pic.jpg" style="padding: 0 ; margin: 0" height=250 width=400>
+        </div>
+        <div id="titleDiv" class="mdl-card__title">
+            <h2 id="title" style="color: black" class="mdl-card__title-text">Text1 - Title</h2>
         </div>
 
 
-        <div class="mdl-card__supporting-text">
-           Text 2 - Description
+        <div id="descriptionDiv" class="mdl-card__supporting-text">
+            <h5 id="description" style="padding: 0 ; margin: 0; font-family: SansSerif,serif">Text 2 - Description</h5>
         </div>
 
-        <div class="mdl-card__supporting-text">
-            Text 3 - By Username
+        <div id="byUsernameDiv" class="mdl-card__supporting-text">
+            <h5 id="byUsername" style="padding: 0 ; margin: 0; font-family: SansSerif,serif">Text 3 - By Username</h5>
         </div>
         <!-- Share Icon
         <div class="mdl-card__menu">-->
@@ -127,7 +115,15 @@
             <!--</button>-->
         <!--</div>-->
     </div>
-    <!--Card Ends-->
+    <!--Card Ends-->.
+
+</div>
+
+
+
+
+
+
     <div class="mdl-layout__drawer">
     </div>
 </div>
