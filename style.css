@@ -1,16 +1,19 @@
-*{
+* {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     outline: none;
 }
-.page-title-span{
-    margin-left:10px;
-}
-.button-right-icon{
+
+.page-title-span {
     margin-left: 10px;
 }
+
+.button-right-icon {
+    margin-left: 10px;
+}
+
 /*Login Cover*/
-.login-cover{
+.login-cover {
     background: #fff;
     position: fixed;
     top: 0;
@@ -22,36 +25,46 @@
     justify-content: center;
     align-items: center;
 }
-#loginProgress{
+
+#loginProgress {
     display: none;
 }
-#loginError{
+
+#loginError {
     display: none;
 }
-#onlyForSignup{
+
+#onlyForSignup {
     display: none;
 }
-#onlyForSignupButton{
+
+#onlyForSignupButton {
     display: none;
 }
-#onlyForSignupBackButton{
+
+#onlyForSignupBackButton {
     display: none;
 }
-#confirmPasswordDiv{
+
+#confirmPasswordDiv {
     display: none;
 }
+
 /*-------- For card ------------*/
 .demo-card-wide.mdl-card {
     width: 512px;
 }
+
 .demo-card-wide > .mdl-card__title {
     color: #fff;
     height: 176px;
     /*background: url('/assets/l.png') center / cover;*/
 }
+
 .demo-card-wide > .mdl-card__menu {
     color: #fff;
 }
-.forScroll{
+
+.forScroll {
     overflow: auto;
 }
