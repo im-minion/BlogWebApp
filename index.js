@@ -12,39 +12,34 @@ firebase.auth().onAuthStateChanged(function (user) {
         //    dd:"hjyu"
         // });
         BlogRef.on('value', function (datasnapshot) {
-            var newPost = datasnapshot.name;
+            var newPost = datasnapshot.val();
+            var totalNoOfObjects = 0;
+            totalNoOfObjects = Object.keys(newPost).length;
+            //console.log(totalNoOfObjects);
+            for (var i = 0; i < totalNoOfObjects; i++) {
+                var temp =newPost[Object.keys(newPost)[i]];
+                var title = temp.title;
+                var description = temp.description;
+                var image = temp.image;
+                var username = temp.username;
+                //retrive temp.title,temp.description,temp.image,temp.username
+                $("#contentDiv").append("<div id=\"cardDiv\" class=\"demo-card-wide mdl-card mdl-shadow--2dp\">" +
+                    "<div id=\"imageDiv\" class=tp style=\"align-self: center\">" +
+                    "<img id=\"imageView\" src=" + image + " style=\"max-height: 250px ; max-width: 300px ; height: auto ; width: auto ; padding: 0 ; margin: 0 ; \">\n" +
+                    "</div>" +
+                    "<div id=\"titleDiv\" class=\"mdl-card__title\">" +
+                    "<h2 id=\"title\" style=\"color: black\" class=\"mdl-card__title-text\">" + title + "</h2>" +
+                    "</div>" +
+                    " <div id=\"descriptionDiv\" class=\"mdl-card__supporting-text\">" +
+                    "<h5 id=\"description\" style=\"padding: 0 ; margin: 0; font-family: SansSerif,serif\">" + description + "</h5>" +
+                    "</div>" +
+                    "<div id=\"byUsernameDiv\" class=\"mdl-card__supporting-text\">" +
+                    "<h5 id=\"byUsername\" style=\"padding: 0 ; margin: 0; font-family: SansSerif,serif\">" + username + "</h5>" +
+                    "</div>" +
+                    "</div>"
+                );
 
-            var title = datasnapshot.child("title").val();
-            var description = datasnapshot.child("description").val();
-            var image = datasnapshot.child("image").val();
-            var username = datasnapshot.child("username").val();
-            console.log(newPost,title, description, image, username);
-
-
-
-
-            $("#contentDiv").append("<div id=\"cardDiv\" class=\"demo-card-wide mdl-card mdl-shadow--2dp\">"+
-                "<div id=\"imageDiv\" class=tp style=\"align-self: center\">" +
-                "<img id=\"imageView\" src="+ image+" style=\"max-height: 250px ; max-width: 300px ; height: auto ; width: auto ; padding: 0 ; margin: 0 ; \">\n" +
-                "</div>" +
-                "<div id=\"titleDiv\" class=\"mdl-card__title\">" +
-                "<h2 id=\"title\" style=\"color: black\" class=\"mdl-card__title-text\">"+title +"</h2>" +
-                "</div>" +
-                " <div id=\"descriptionDiv\" class=\"mdl-card__supporting-text\">" +
-                "<h5 id=\"description\" style=\"padding: 0 ; margin: 0; font-family: SansSerif,serif\">"+ description +"</h5>" +
-                "</div>" +
-                "<div id=\"byUsernameDiv\" class=\"mdl-card__supporting-text\">" +
-                "<h5 id=\"byUsername\" style=\"padding: 0 ; margin: 0; font-family: SansSerif,serif\">"+ username +"</h5>" +
-                "</div>" +
-                "</div>"
-
-            );
-
-
-
-
-
-
+            }
 
         });
 
