@@ -2,7 +2,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         //user is siggned in
         $('.login-cover').hide();
-
+        $(".fab").show();
         /*Blog Displaying things*/
 
         var rootRef = firebase.database().ref();
@@ -97,6 +97,7 @@ $("#signoutButton").click(
 
         firebase.auth().signOut().then(function () {
             // Sign-out successful.
+            $(".fab").hide();
         }).catch(function (error) {
             // An error happened.
             alert(error.message)
