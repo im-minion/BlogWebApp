@@ -107,7 +107,6 @@ $("#signoutButton").click(
 //signupbutton
 
 $("#signupButton").click(function () {
-    $("#onlyForSignup").show();
     $("#signupButton").hide();
     $("#onlyForSignupButton").show();
     $("#loginButton").hide();
