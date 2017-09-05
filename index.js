@@ -48,7 +48,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         if (!dialog.showModal) {
             dialogPlyfill.registerDialog(dialog);
         }
-        //dialog.close();
+        dialog.close();
 
     }
     else {
