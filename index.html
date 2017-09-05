@@ -29,8 +29,7 @@
             <input class="mdl-textfield__input" type="password" id="loginPassword">
             <label class="mdl-textfield__label" for="loginPassword">Password</label>
         </div>
-        <div id="confirmPasswordDiv" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-        >
+        <div id="confirmPasswordDiv" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input" type="password" id="confirmPassword">
             <label class="mdl-textfield__label" for="confirmPassword">Confirm Password</label>
         </div>
@@ -129,6 +128,48 @@
         <!--&lt;!&ndash;Card Ends&ndash;&gt;.-->
 
     </div>
+    <!--addBlogDialog starts-->
+
+    <dialog id="addBlogDialog" class="mdl-dialog" style="width: 400px">
+        <h4 id="titleBlog" class="mdl-dialog__title">Add Your Blog : </h4>
+        <div class="mdl-dialog__content">
+            <h3>IMAGE</h3>
+
+            <div id="titleBlogDialogDiv" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="titleBlogDialog">
+                <label class="mdl-textfield__label" for="titleBlogDialog">Title...</label>
+            </div>
+
+            <!--<div id="descriptionBlogDialogDiv" class="mdl-textfield mdl-js-textfield mdl-textfield&#45;&#45;floating-label">-->
+            <!--<input class="mdl-textfield__input" type="text" id="descriptionBlogDialog" style="height: 30px">-->
+            <!--<label class="mdl-textfield__label" for="descriptionBlogDialog">Description...</label>-->
+            <!--</div>-->
+            <form action="#">
+                <div id="descriptionBlogDialogDiv" class="mdl-textfield mdl-js-textfield">
+                    <textarea class="mdl-textfield__input" type="text" rows="3" id="descriptionBlogDialog"></textarea>
+                    <label class="mdl-textfield__label" for="descriptionBlogDialog">Description...</label>
+                </div>
+            </form>
+
+
+        </div>
+        <div class="mdl-dialog__actions">
+
+            <!--it will contain 2 buttons 1st for post and 2nd for back -->
+            <button id="postBlogDialogButton"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Post!
+            </button>
+
+            <button id="backBlogDialogButton"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Back to
+                Blogs
+            </button>
+
+        </div>
+    </dialog>
+
+    <!--addBlogDialogmEnds-->
+
 
     <div class="mdl-layout__drawer">
     </div>

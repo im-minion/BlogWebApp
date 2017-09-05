@@ -156,3 +156,33 @@ $("#onlyForSignupBackButton").click(function () {
     $("#confirmPasswordDiv").hide();
 
 });
+
+//addBlogButton - getting the addBlogDialog
+$("#addButton").click(function () {
+    $("#contentDiv").hide();
+    $("#addBlogDialog").show();
+});
+
+//backpressed in addBlogDialog
+$("#backBlogDialogButton").click(function () {
+    $("#contentDiv").show();
+    $("#addBlogDialog").hide();
+});
+
+//postBlogDialogButton in addBlogDialog
+$("#postBlogDialogButton").click(function () {
+
+    //progrees on Post button if possible
+    //get data in the imageView and inside the Title & Description TextFields
+    var titleToPost = $("#titleBlogDialog").val();
+    var descriptionToPost = $("#descriptionBlogDialog").val();
+    var image = "null";
+
+    console.log(titleToPost,descriptionToPost,image);
+    //TODO:post the above three things in the Firebase inside Blog->pushUniqueID->(in corresponding keys)
+
+
+    //after that show the Blogs again and hide the BlogDialog
+    $("#contentDiv").show();
+    $("#addBlogDialog").hide();
+});

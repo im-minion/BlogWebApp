@@ -76,3 +76,7 @@
 #contentDiv {
     align-self: center;
 }
+
+#addBlogDialog{
+    margin-top: 100px;
+}
