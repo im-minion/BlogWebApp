@@ -7,11 +7,16 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         var rootRef = firebase.database().ref();
         var BlogRef = rootRef.child("Blog");
-        BlogRef.on('value', function (datasnapshot) {
+        BlogRef.on("value", function (datasnapshot) {
             var newPost = datasnapshot.val();
             var totalNoOfObjects = 0;
             totalNoOfObjects = Object.keys(newPost).length;
             //console.log(totalNoOfObjects);
+
+
+            //to clear the previous loaded blogs
+            document.getElementById("contentDiv").innerHTML = " ";
+
             for (var i = 0; i < totalNoOfObjects; i++) {
                 //retrive temp.title,temp.description,temp.image,temp.username
 
@@ -21,7 +26,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 var image = temp.image;
                 var username = temp.username;
 
-                $("#contentDiv").append("<div id=\"cardDiv\" class=\"demo-card-wide mdl-card mdl-shadow--2dp\">" +
+                $("#contentDiv").prepend("<div id=\"cardDiv\" class=\"demo-card-wide mdl-card mdl-shadow--2dp\">" +
                     "<div id=\"imageDiv\" class=tp style=\"align-self: center\">" +
                     "<img id=\"imageView\" src=" + image + " style=\"max-height: 250px ; max-width: 300px ; height: auto ; width: auto ; padding: 0 ; margin: 0 ; \">\n" +
                     "</div>" +
@@ -55,6 +60,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         //user not exist
         $('.login-cover').show();
         $("#loginProgress").hide();
+        $("#loginButton").show();
         var dialog = document.querySelector('#loginDialog');
         if (!dialog.showModal) {
             dialogPlyfill.registerDialog(dialog);
@@ -88,9 +94,9 @@ $("#loginButton").click(
 //logout process
 $("#signoutButton").click(
     function () {
+
         firebase.auth().signOut().then(function () {
             // Sign-out successful.
-
         }).catch(function (error) {
             // An error happened.
             alert(error.message)
