@@ -175,6 +175,21 @@ $("#backBlogDialogButton").click(function () {
 //     control.replaceWith(control.val('').clone(true));
 // });
 
+//imagechange function
+var imageData;
+function imgchange(f) {
+    var filePath = $('#file').val();
+    var reader = new FileReader();
+    //console.log($('#file').val());
+    reader.onload = function (e) {
+        $('#imgs').attr('src', e.target.result);
+        imageData = e.target.result;
+
+    };
+    //console.log(f.files[0]);
+    reader.readAsDataURL(f.files[0]);
+}
+
 
 //postBlogDialogButton in addBlogDialog
 $("#postBlogDialogButton").click(function () {
@@ -183,14 +198,22 @@ $("#postBlogDialogButton").click(function () {
     //get data in the imageView and inside the Title & Description TextFields
     var titleToPost = $("#titleBlogDialog").val();
     var descriptionToPost = $("#descriptionBlogDialog").val();
-    var image = "null";
-
-    console.log(titleToPost,descriptionToPost,image);
+    console.log(titleToPost,descriptionToPost,imageData);
     //TODO:post the above three things in the Firebase inside Blog->pushUniqueID->(in corresponding keys)
 
+    var rootRef = firebase.database().ref();
+    var BlogRef = rootRef.child("Blog");
+    BlogRef.push().set({
+        description:descriptionToPost,
+        image:imageData,
+        title:titleToPost,
+        username:"NA"
+    });
 
     //after that show the Blogs again and hide the BlogDialog
     $("#contentDiv").show();
     $("#addBlogDialog").hide();
 });
+
+
 

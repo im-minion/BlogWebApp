@@ -152,20 +152,6 @@
                     <!--<button class="buttons_profile3" id="btnSubmit" >SAVE</button>-->
                     <!--</div>-->
                 </form>
-                <script>
-                    function imgchange(f) {
-                        var filePath = $('#file').val();
-                        var reader = new FileReader();
-                        //console.log($('#file').val());
-                        reader.onload = function (e) {
-                            $('#imgs').attr('src', e.target.result);
-                            console.log(e.target.files);
-
-                        };
-                        //console.log(f.files[0]);
-                        reader.readAsDataURL(f.files[0]);
-                    }
-                </script>
             </div>
             <div id="titleBlogDialogDiv" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" id="titleBlogDialog">
