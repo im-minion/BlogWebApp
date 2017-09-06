@@ -169,6 +169,13 @@ $("#backBlogDialogButton").click(function () {
     $("#addBlogDialog").hide();
 });
 
+//clear button
+// var control = $("#imageSelectButton");
+// $("#clear").click(function () {
+//     control.replaceWith(control.val('').clone(true));
+// });
+
+
 //postBlogDialogButton in addBlogDialog
 $("#postBlogDialogButton").click(function () {
 
@@ -186,3 +193,4 @@ $("#postBlogDialogButton").click(function () {
     $("#contentDiv").show();
     $("#addBlogDialog").hide();
 });
+

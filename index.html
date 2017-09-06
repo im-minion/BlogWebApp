@@ -133,8 +133,40 @@
     <dialog id="addBlogDialog" class="mdl-dialog" style="width: 400px">
         <h4 id="titleBlog" class="mdl-dialog__title">Add Your Blog : </h4>
         <div class="mdl-dialog__content">
-            <h3>IMAGE</h3>
+            <div id="imageDiv">
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <center>
+                        <table>
+                            <tr>
+                                <td colspan="2">
+                                    <img id="imgs" width="170px" height="160px" src=""/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right"><b><label for="file">Filename:</label></b></td>
+                                <td><input type="file" name="file" id="file" onchange="imgchange(this)"></td>
+                            </tr>
+                        </table>
+                    </center>
+                    <!--<div class="buttons_save">-->
+                    <!--<button class="buttons_profile3" id="btnSubmit" >SAVE</button>-->
+                    <!--</div>-->
+                </form>
+                <script>
+                    function imgchange(f) {
+                        var filePath = $('#file').val();
+                        var reader = new FileReader();
+                        //console.log($('#file').val());
+                        reader.onload = function (e) {
+                            $('#imgs').attr('src', e.target.result);
+                            console.log(e.target.files);
 
+                        };
+                        //console.log(f.files[0]);
+                        reader.readAsDataURL(f.files[0]);
+                    }
+                </script>
+            </div>
             <div id="titleBlogDialogDiv" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" id="titleBlogDialog">
                 <label class="mdl-textfield__label" for="titleBlogDialog">Title...</label>
