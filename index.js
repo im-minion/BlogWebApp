@@ -159,16 +159,22 @@ $("#onlyForSignupBackButton").click(function () {
 
 //addBlogButton - getting the addBlogDialog
 $("#addButton").click(function () {
+
+    //TODO:CLEAR ALL FIELDS :) -- ids=> fileButton,titleBlogDialog,descriptionBlogDialog
+    // var fileButton = $("#fileButton");
+    // fileButton.replaceWith(fileButton.val('').clone(true));
+    // document.getElementById("titleBlogDialog").textContent = '';
+    // document.getElementById("descriptionBlogDialog").textContent = '';
+
     $("#contentDiv").hide();
     $("#addBlogDialog").show();
 });
 
 //backpressed in addBlogDialog
 $("#backBlogDialogButton").click(function () {
-    //TODO:CLEAR ALL FIELDS :) -- ids=> fileButton,titleBlogDialog,descriptionBlogDialog
+
     $("#contentDiv").show();
     $("#addBlogDialog").hide();
-
 
 });
 
@@ -193,16 +199,13 @@ $("#backBlogDialogButton").click(function () {
 // }
 
 
-
-
 //new Firecast Try For Image
 var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('fileButton');
-var file="";
-fileButton.addEventListener('change',function (e) {
-   file = e.target.files[0];
+var file = "";
+fileButton.addEventListener('change', function (e) {
+    file = e.target.files[0];
 });
-
 
 
 //postBlogDialogButton in addBlogDialog
@@ -220,7 +223,7 @@ $("#postBlogDialogButton").click(function () {
 
     //user
     var user = firebase.auth().currentUser;
-    var usernameToPost ="NA";
+    var usernameToPost = "NA";
     if (user !== null) {
         usernameToPost = user.email;
     }
@@ -228,7 +231,7 @@ $("#postBlogDialogButton").click(function () {
     //image
     var imageToPost = "NA";
     //console.log(file);
-    var storageRef = firebase.storage().ref('Blog_Image/'+file.name + new Date());
+    var storageRef = firebase.storage().ref('Blog_Image/' + file.name + new Date());
     var task = storageRef.put(file);
     var tempo = task.then(function (snap) {
         imageToPost = snap.downloadURL;
@@ -238,10 +241,10 @@ $("#postBlogDialogButton").click(function () {
         var rootRef = firebase.database().ref();
         var BlogRef = rootRef.child("Blog");
         BlogRef.push().set({
-            description:descriptionToPost,
-            image:imageToPost,
-            title:titleToPost,
-            username:usernameToPost
+            description: descriptionToPost,
+            image: imageToPost,
+            title: titleToPost,
+            username: usernameToPost
         });
 
     });
