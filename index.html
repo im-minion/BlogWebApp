@@ -136,17 +136,9 @@
             <div id="imageDiv">
                 <form action="#" method="post" enctype="multipart/form-data">
                     <center>
-                        <table>
-                            <tr>
-                                <td colspan="2">
-                                    <img id="imgs" width="170px" height="160px" src=""/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right"><b><label for="file">Filename:</label></b></td>
-                                <td><input type="file" name="file" id="file" onchange="imgchange(this)"></td>
-                            </tr>
-                        </table>
+                        <progress value="0" max="100" id="uploader">0%</progress>
+
+                        <input type="file" value="upload" id="fileButton">
                     </center>
                     <!--<div class="buttons_save">-->
                     <!--<button class="buttons_profile3" id="btnSubmit" >SAVE</button>-->
@@ -210,7 +202,7 @@
         authDomain: "fir-web-learn-614f0.firebaseapp.com",
         databaseURL: "https://fir-web-learn-614f0.firebaseio.com",
         projectId: "fir-web-learn-614f0",
-        storageBucket: "",
+        storageBucket: "gs://fir-web-learn-614f0.appspot.com",
         messagingSenderId: "257073188256"
     };
     firebase.initializeApp(config);

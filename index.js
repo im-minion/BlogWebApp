@@ -165,8 +165,11 @@ $("#addButton").click(function () {
 
 //backpressed in addBlogDialog
 $("#backBlogDialogButton").click(function () {
+    //TODO:CLEAR ALL FIELDS :) -- ids=> fileButton,titleBlogDialog,descriptionBlogDialog
     $("#contentDiv").show();
     $("#addBlogDialog").hide();
+
+
 });
 
 //clear button
@@ -176,19 +179,30 @@ $("#backBlogDialogButton").click(function () {
 // });
 
 //imagechange function
-var imageData;
-function imgchange(f) {
-    var filePath = $('#file').val();
-    var reader = new FileReader();
-    //console.log($('#file').val());
-    reader.onload = function (e) {
-        $('#imgs').attr('src', e.target.result);
-        imageData = e.target.result;
+// var imageData;
+// function imgchange(f) {
+//     var filePath = $('#file').val();
+//     var reader = new FileReader();
+//     //console.log($('#file').val());
+//     reader.onload = function (e) {
+//         $('#imgs').attr('src', e.target.result);
+//         imageData = e.target.result;
+//     };
+//     //console.log(f.files[0]);
+//     reader.readAsDataURL(f.files[0]);
+// }
 
-    };
-    //console.log(f.files[0]);
-    reader.readAsDataURL(f.files[0]);
-}
+
+
+
+//new Firecast Try For Image
+var uploader = document.getElementById('uploader');
+var fileButton = document.getElementById('fileButton');
+var file="";
+fileButton.addEventListener('change',function (e) {
+   file = e.target.files[0];
+});
+
 
 
 //postBlogDialogButton in addBlogDialog
@@ -196,19 +210,42 @@ $("#postBlogDialogButton").click(function () {
 
     //progrees on Post button if possible
     //get data in the imageView and inside the Title & Description TextFields
-    var titleToPost = $("#titleBlogDialog").val();
-    var descriptionToPost = $("#descriptionBlogDialog").val();
-    console.log(titleToPost,descriptionToPost,imageData);
-    //TODO:post the above three things in the Firebase inside Blog->pushUniqueID->(in corresponding keys)
 
-    var rootRef = firebase.database().ref();
-    var BlogRef = rootRef.child("Blog");
-    BlogRef.push().set({
-        description:descriptionToPost,
-        image:imageData,
-        title:titleToPost,
-        username:"NA"
+    //description
+    var descriptionToPost = $("#descriptionBlogDialog").val();
+
+    //title
+    var titleToPost = $("#titleBlogDialog").val();
+
+
+    //user
+    var user = firebase.auth().currentUser;
+    var usernameToPost ="NA";
+    if (user !== null) {
+        usernameToPost = user.email;
+    }
+
+    //image
+    var imageToPost = "NA";
+    //console.log(file);
+    var storageRef = firebase.storage().ref('Blog_Image/'+file.name + new Date());
+    var task = storageRef.put(file);
+    var tempo = task.then(function (snap) {
+        imageToPost = snap.downloadURL;
+        //console.log(imageToPost);
+        // console.log(descriptionToPost,titleToPost,usernameToPost,imageToPost);
+
+        var rootRef = firebase.database().ref();
+        var BlogRef = rootRef.child("Blog");
+        BlogRef.push().set({
+            description:descriptionToPost,
+            image:imageToPost,
+            title:titleToPost,
+            username:usernameToPost
+        });
+
     });
+
 
     //after that show the Blogs again and hide the BlogDialog
     $("#contentDiv").show();
