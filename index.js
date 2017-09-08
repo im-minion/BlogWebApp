@@ -41,10 +41,14 @@ firebase.auth().onAuthStateChanged(function (user) {
                 //retrive temp.title,temp.description,temp.image,temp.username
 
                 var temp = newPost[Object.keys(newPost)[i]];
-                var title = temp.title;
-                var description = temp.description;
-                var image = temp.image;
+                var title = temp.Title;
+                var description = temp.DESCRIPTION;
+                var image = temp.IMAGE;
                 var username = temp.username;
+                // var title = temp.title;
+                //var description = temp.description;
+                // var image = temp.image;
+
 
                 $("#contentDiv").prepend("<div id=\"cardDiv\" class=\"demo-card-wide mdl-card mdl-shadow--2dp\">" +
                     "<div id=\"imageDiv\" class=tp style=\"align-self: center\">" +
@@ -240,6 +244,13 @@ $("#postBlogDialogButton").click(function () {
         usernameToPost = user.email;
     }
 
+    //uid
+    var cUser = firebase.auth().currentUser;
+    var uid = "NA";
+    if (cUser !== null) {
+        uid = cUser.uid;
+    }
+
     //image
     var imageToPost = "NA";
     //console.log(file);
@@ -256,10 +267,14 @@ $("#postBlogDialogButton").click(function () {
         //TODO:-Exception Handling
 
         BlogRef.push().set({
-            description: descriptionToPost,
-            image: imageToPost,
-            title: titleToPost,
-            username: usernameToPost
+            // description: descriptionToPost,
+            // image: imageToPost,
+            // title: titleToPost,
+            DESCRIPTION: descriptionToPost,
+            IMAGE: imageToPost,
+            Title: titleToPost,
+            username: usernameToPost,
+            uid: uid
         });
 
     });
