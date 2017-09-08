@@ -3,9 +3,33 @@ firebase.auth().onAuthStateChanged(function (user) {
         //user is siggned in
         $('.login-cover').hide();
         $(".fab").show();
-        /*Blog Displaying things*/
+
 
         var rootRef = firebase.database().ref();
+
+
+        /*USER DATA IN REAL-TIMEDB*/
+        var cUser = firebase.auth().currentUser;
+        var uid = "";
+        var email = "";
+        if (cUser !== null) {
+            uid = cUser.uid;
+            email = cUser.email;
+        }
+        var userRef = rootRef.child("Users");
+        userRef.once('value', function (snapshot) {
+            if (snapshot.hasChild(uid)) {
+                window.alert("Welcome Back!!")
+            }
+            else {
+                //window.alert("NOT EXISTS")
+                userRef.child(uid).child("name").set(email);
+            }
+        });
+
+
+
+        /*Blog Displaying things*/
         var BlogRef = rootRef.child("Blog");
         BlogRef.on("value", function (datasnapshot) {
             var newPost = datasnapshot.val();
@@ -122,24 +146,24 @@ $("#onlyForSignupButton").click(function () {
     var email = $("#loginEmail").val();
     var password = $("#loginPassword").val();
     var cPassword = $("#confirmPassword").val();
-    console.log("srt", email, password, cPassword);
+    //console.log("srt", email, password, cPassword);
     if (password !== cPassword) {
-        alert("Password Didnt match");
+        window.alert("Password Didn't match");
+        return 0;
     }
     else {
         $("#loginProgress").show();
         $("#onlyForSignupButton").hide();
-        //alert("Password match !!");
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
             // Handle Errors here.
-
             var errorCode = error.code;
             var errorMessage = error.message;
-            alert(errorMessage);
+            window.alert(errorMessage);
             // ...
             $("#loginProgress").hide();
             $("#onlyForSignupButton").show();
         });
+        console.log("WTF2");
     }
 });
 
