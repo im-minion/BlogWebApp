@@ -24,6 +24,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             else {
                 //window.alert("NOT EXISTS")
                 userRef.child(uid).child("name").set(email);
+                userRef.child(uid).child("image").set("https://www.atomix.com.au/media/2015/06/atomix_user31.png");
             }
         });
 
