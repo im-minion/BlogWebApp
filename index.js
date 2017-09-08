@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                     "<h5 id=\"description\" style=\"padding: 0 ; margin: 0; font-family: SansSerif,serif\">" + description + "</h5>" +
                     "</div>" +
                     "<div id=\"byUsernameDiv\" class=\"mdl-card__supporting-text\">" +
-                    "<h5 id=\"byUsername\" style=\"padding: 0 ; margin: 0; font-family: SansSerif,serif\">" + username + "</h5>" +
+                    "<h5 id=\"byUsername\" style=\"padding: 0 ; margin: 0; font-family: 'Roboto', sans-serif\">By " + username + "</h5>" +
                     "</div>" +
                     "</div>"
                 );
@@ -123,9 +123,8 @@ $("#onlyForSignupButton").click(function () {
     var password = $("#loginPassword").val();
     var cPassword = $("#confirmPassword").val();
     console.log("srt", email, password, cPassword);
-    //TODO:signup user with email and password
     if (password !== cPassword) {
-        //alert("Password Didnt match");
+        alert("Password Didnt match");
     }
     else {
         $("#loginProgress").show();
@@ -163,8 +162,8 @@ $("#addButton").click(function () {
     //TODO:CLEAR ALL FIELDS :) -- ids=> fileButton,titleBlogDialog,descriptionBlogDialog
     // var fileButton = $("#fileButton");
     // fileButton.replaceWith(fileButton.val('').clone(true));
-    // document.getElementById("titleBlogDialog").textContent = '';
-    // document.getElementById("descriptionBlogDialog").textContent = '';
+    // document.getElementById("titleBlogDialog").value = "";
+    // document.getElementById("descriptionBlogDialog").value = "";
 
     $("#contentDiv").hide();
     $("#addBlogDialog").show();
@@ -220,10 +219,9 @@ $("#postBlogDialogButton").click(function () {
     //title
     var titleToPost = $("#titleBlogDialog").val();
 
-
     //user
-    var user = firebase.auth().currentUser;
     var usernameToPost = "NA";
+    var user = firebase.auth().currentUser;
     if (user !== null) {
         usernameToPost = user.email;
     }
@@ -240,6 +238,9 @@ $("#postBlogDialogButton").click(function () {
 
         var rootRef = firebase.database().ref();
         var BlogRef = rootRef.child("Blog");
+
+        //TODO:-Exception Handling
+
         BlogRef.push().set({
             description: descriptionToPost,
             image: imageToPost,
@@ -248,7 +249,6 @@ $("#postBlogDialogButton").click(function () {
         });
 
     });
-
 
     //after that show the Blogs again and hide the BlogDialog
     $("#contentDiv").show();
