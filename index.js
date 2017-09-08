@@ -254,7 +254,7 @@ $("#postBlogDialogButton").click(function () {
     //image
     var imageToPost = "NA";
     //console.log(file);
-    var storageRef = firebase.storage().ref('Blog_Image/' + file.name + new Date());
+    var storageRef = firebase.storage().ref('Blog_Images/' + file.name + new Date());
     var task = storageRef.put(file);
     var tempo = task.then(function (snap) {
         imageToPost = snap.downloadURL;
