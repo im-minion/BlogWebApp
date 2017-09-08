@@ -19,16 +19,14 @@ firebase.auth().onAuthStateChanged(function (user) {
         var userRef = rootRef.child("Users");
         userRef.once('value', function (snapshot) {
             if (snapshot.hasChild(uid)) {
-                window.alert("Welcome Back!!")
+                //window.alert("Welcome Back!!")
+                toastr.success('Have fun storming the castle!', email)
             }
             else {
-                //window.alert("NOT EXISTS")
                 userRef.child(uid).child("name").set(email);
                 userRef.child(uid).child("image").set("https://www.atomix.com.au/media/2015/06/atomix_user31.png");
             }
         });
-
-
 
         /*Blog Displaying things*/
         var BlogRef = rootRef.child("Blog");
@@ -36,10 +34,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             var newPost = datasnapshot.val();
             var totalNoOfObjects = 0;
             totalNoOfObjects = Object.keys(newPost).length;
-            //console.log(totalNoOfObjects);
 
-
-            //to clear the previous loaded blogs
             document.getElementById("contentDiv").innerHTML = " ";
 
             for (var i = 0; i < totalNoOfObjects; i++) {
@@ -66,11 +61,8 @@ firebase.auth().onAuthStateChanged(function (user) {
                     "</div>" +
                     "</div>"
                 );
-
             }
-
         });
-
 
         /*Blog Displaying things*/
 
@@ -131,7 +123,6 @@ $("#signoutButton").click(
 );
 
 //signupbutton
-
 $("#signupButton").click(function () {
     $("#signupButton").hide();
     $("#onlyForSignupButton").show();
@@ -164,12 +155,10 @@ $("#onlyForSignupButton").click(function () {
             $("#loginProgress").hide();
             $("#onlyForSignupButton").show();
         });
-        console.log("WTF2");
     }
 });
 
 $("#onlyForSignupBackButton").click(function () {
-    console.log("back presesd");
     var x = document.getElementById("titleSignIn");
     x.innerText = "Sign In";
 

@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery-3.1.0" level="application" />
     <orderEntry type="library" name="material" level="application" />
+    <orderEntry type="library" name="toastr" level="application" />
   </component>
 </module>
