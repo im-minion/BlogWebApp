@@ -265,7 +265,6 @@ $("#postBlogDialogButton").click(function () {
         var BlogRef = rootRef.child("Blog");
 
         //TODO:-Exception Handling
-
         BlogRef.push().set({
             // description: descriptionToPost,
             // image: imageToPost,
