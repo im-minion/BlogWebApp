@@ -1,6 +1,8 @@
+# App is not being maintained anymore.
+
 # BlogWebApp
 Learning Firebase for Web Apps :)
 
 ### Hosted at -
-# not working
+### not working
 https://blogwebapp.000webhostapp.com/
